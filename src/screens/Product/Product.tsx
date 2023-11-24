@@ -31,7 +31,7 @@ export default function Product({ route, navigation }: { route: any, navigation:
   function onPressAddToCart() {
     if (productDetails?.id) {
       dispatch(addToCart(productDetails))
-      ToastAndroid.show("Product added to cart", ToastAndroid.SHORT)
+      ToastAndroid.show(`${productDetails.title} added to cart`, ToastAndroid.SHORT)
     }
   }
 

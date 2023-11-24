@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ToastAndroid } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../store/cartActions'
 import { RecommendedCardStyles } from './Styles'
@@ -25,6 +25,7 @@ export default function RecommendedCard({ navigation, product }: {
   function onPressAddToCart() {
     if (product?.id) {
       dispatch(addToCart(product))
+      ToastAndroid.show(`${product.title} added to cart`, ToastAndroid.SHORT)
     }
   }
 

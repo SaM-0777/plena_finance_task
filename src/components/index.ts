@@ -4,6 +4,7 @@ import ProductReview from "./ProductReview";
 import ProductCarousel from "./ProductCarousel";
 import AddedItem from "./AddedItem";
 import Checkout from "./Checkout";
+import CustomTabBar from "./CustomTabBar";
 
 export {
   Banner,
@@ -12,4 +13,5 @@ export {
   ProductCarousel,
   AddedItem,
   Checkout,
+  CustomTabBar,
 }

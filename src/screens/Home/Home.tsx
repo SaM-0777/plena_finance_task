@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable quotes */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { View, Text, StatusBar, ScrollView, Button, TouchableOpacity, TextInput } from 'react-native';
 import { useSelector } from 'react-redux';
 import BagIcon from "../../../assets/icons/BagIcon.svg";
@@ -30,8 +30,13 @@ export default function Home({ navigation }: { navigation: any }) {
     },
   ]
 
+  
   const [products, setProducts] = useState<Product[]>()
-
+  const optimizedList = useMemo(() => {
+    // No additional processing, simply returning the itemList
+    return products;
+  }, [products]);
+  
   async function getProducts() {
     try {
       const response = await fetch("https://dummyjson.com/products")
@@ -59,7 +64,7 @@ export default function Home({ navigation }: { navigation: any }) {
   return (
     <View style={Styles.screen} >
       <StatusBar backgroundColor={colors.systemBlue}  barStyle={'light-content'} />
-      <ScrollView alwaysBounceVertical={false} bounces={false} contentContainerStyle={Styles.container} showsVerticalScrollIndicator={false} style={{ flexGrow: 1, marginBottom: 40, }} >
+      <ScrollView alwaysBounceVertical={false} bounces={false} contentContainerStyle={Styles.container} showsVerticalScrollIndicator={false} style={{ flexGrow: 1, marginBottom: 5, }} >
         {/* Header */}
         <View style={Styles.header} >
           <View style={Styles.headingContainer} >
@@ -101,7 +106,7 @@ export default function Home({ navigation }: { navigation: any }) {
           {/* discount banner */}
 
           {/* recommended section */}
-          <Recommended navigation={navigation} products={products} />
+          <Recommended navigation={navigation} products={optimizedList} />
         </View>
 
       </ScrollView>
