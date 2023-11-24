@@ -1,13 +1,8 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { Home, Product, Cart } from '../screens'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeIcon from "../../assets/icons/HomeIcon.svg"
-import CategoryIcon from "../../assets/icons/CategoryIcon.svg"
-import FavouriteIcon from "../../assets/icons/HeartIcon.svg"
-import MoreIcon from "../../assets/icons/MoreVerticalIcon.svg"
-import Animated from 'react-native-reanimated';
 import colors from '../constants/colors';
 import TabBarItem from '../components/CustomTabBar';
 
